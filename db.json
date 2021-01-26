@@ -1,0 +1,68 @@
+{
+  "cards": [
+    {
+      "number": "9987-1234-5678-98745",
+      "holderName": "Rachit Sakhidas",
+      "expiryDate": "Aug/2026",
+      "securityCode": "007",
+      "amount": "250000",
+      "id": 1
+    },
+    {
+      "number": "1234-1234-9856-1234",
+      "holderName": "Reecha Sharma Sakhidas",
+      "expiryDate": "Jul/2024",
+      "securityCode": "147",
+      "amount": "350000",
+      "id": "3"
+    },
+    {
+      "number": "7894-1234-1234-5678",
+      "holderName": "Atit",
+      "expiryDate": "Aug/21",
+      "securityCode": "789",
+      "amount": 35000,
+      "id": "4"
+    },
+    {
+      "number": "1234-6541-9879-1234",
+      "holderName": "Alka Sakhidas",
+      "expiryDate": "Sep/2024",
+      "securityCode": "000",
+      "amount": "300000",
+      "id": "efRedo7"
+    },
+    {
+      "number": "1234",
+      "holderName": "Viresh",
+      "expiryDate": "Jun/2023",
+      "securityCode": "000",
+      "amount": "25000",
+      "id": "CYshrcu"
+    },
+    {
+      "number": "12457897",
+      "holderName": "Kandarp",
+      "expiryDate": "May/2021",
+      "securityCode": "000",
+      "amount": "125478",
+      "id": "AojpXgA"
+    },
+    {
+      "number": "1234-1234-1234-1234",
+      "holderName": "Dipen Amin",
+      "expiryDate": "Sep/2022",
+      "securityCode": "000",
+      "amount": "30000",
+      "id": "ZnKqD2z"
+    },
+    {
+      "number": "1478-1478-1478-1478",
+      "holderName": "Umang",
+      "expiryDate": "Oct/2025",
+      "securityCode": "000",
+      "amount": "14789",
+      "id": "h8TE5-Z"
+    }
+  ]
+}

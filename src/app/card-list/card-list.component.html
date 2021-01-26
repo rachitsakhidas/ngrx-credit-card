@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>My Card
+                <div class="pull-right">
+                    <button mat-raised-button color="primary" routerLink="add">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon>
+                        Add New Card
+                    </button>
+                </div>
+            </h1>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of cardList">
+            <div class="thumbnail">
+                <div class="caption">
+                    <div class='col-lg-12'>
+                        <mat-icon aria-hidden="false" aria-label="Example home icon">credit_card</mat-icon>
+                        <button mat-mini-fab color="primary" class="pull-right" (click)="delete(item);" aria-label="Example icon button with a menu icon">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                    <div class='col-lg-12 well well-add-card'>
+                        <h4>{{item.holderName}}</h4>
+                    </div>
+                    <div class='col-lg-12'>
+                        <p>{{item.number}}</p>
+                        <p class="text-muted">{{item.expiryDate}}</p>
+                    </div>
+                    <button mat-raised-button color="primary" [routerLink]="['edit', item.id]">Update Card</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
