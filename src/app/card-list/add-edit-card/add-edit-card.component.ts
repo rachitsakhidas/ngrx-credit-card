@@ -17,6 +17,10 @@ import { CommonUtilService } from '../../shared/common-util.service';
 import { PaymentService } from '../../shared/services/payment.service';
 
 
+import * as moment from 'moment';
+import 'moment-duration-format';
+
+
 @Component({
   selector: 'app-add-edit-card',
   templateUrl: './add-edit-card.component.html',
@@ -27,6 +31,7 @@ export class AddEditCardComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
   isSubmiting: boolean = false;
   isForEdit: boolean = false;
+  isExpiryDateInValid: boolean = false;
 
   creditCardForm: any;
 
@@ -36,6 +41,8 @@ export class AddEditCardComponent implements OnInit, OnDestroy {
   destroyed$ = new Subject<boolean>();
   private addSub!: Subscription;
   private editSub!: Subscription;
+
+
 
   constructor(
     public dialogRef: MatDialogRef<AddEditCardComponent>,
@@ -142,7 +149,7 @@ export class AddEditCardComponent implements OnInit, OnDestroy {
   }
 
   returnParam() {
-    const fData = this.creditCardForm.value
+    const fData = this.creditCardForm.value;
     let card: CreditCard = {
       number: fData.number,
       holderName: fData.holderName,
@@ -151,6 +158,19 @@ export class AddEditCardComponent implements OnInit, OnDestroy {
       amount: fData.amount
     }
     return card;
+  }
+
+  validteExpiryDate(): boolean {
+    const fData = this.creditCardForm.value;
+    var date = new Date();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+    if (year > fData.expiryYear || (year === fData.expiryYear && month >= (fData.expiryMonth - 1))) {
+      this.isExpiryDateInValid = true;
+      return false;
+    }
+    this.isExpiryDateInValid = false;
+    return true;
   }
 
   submitData() {
@@ -168,12 +188,13 @@ export class AddEditCardComponent implements OnInit, OnDestroy {
     if (this.isSubmiting) {
       return;
     }
-
-    this.isSubmiting = true;
-    if (this.creditCardForm.valid && !this.isForEdit) {
-      this.submitData();
-    } else {
-      this.updateData();
+    if (this.validteExpiryDate() && this.creditCardForm.valid) {
+      this.isSubmiting = true;
+      if (this.isForEdit) {
+        this.updateData();
+      } else {
+        this.submitData();
+      }
     }
   }
 

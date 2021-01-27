@@ -63,6 +63,14 @@
       "securityCode": "000",
       "amount": "14789",
       "id": "h8TE5-Z"
+    },
+    {
+      "number": "122",
+      "holderName": "Test",
+      "expiryDate": "Feb/2021",
+      "securityCode": "000",
+      "amount": "2500",
+      "id": "Y11fUV1"
     }
   ]
 }

@@ -46,6 +46,9 @@
                                                 *ngIf="(f.expiryMonth.touched || f.expiryYear.touched) && (f.expiryMonth.errors?.required || f.expiryYear.errors?.required)">
                                                 Please enter expiry date (08/2025) which is printed on your card.
                                             </div>
+                                            <div class="alert alert-danger" *ngIf="isExpiryDateInValid">
+                                                Expiry Date should be greater than current date.
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
