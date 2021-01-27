@@ -12,8 +12,6 @@ import { refreshCardsRequest, deleteCardRequest } from '../actions/credit-card.a
 })
 export class CardListComponent implements OnInit, OnDestroy {
 
-  // title = 'ngrx-credit-card';
-
   cardList: any;
   cards$ = this.store.pipe(select(state => state.cards)).subscribe((data) => {
     this.cardList = data;

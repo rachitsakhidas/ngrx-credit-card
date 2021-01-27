@@ -16,11 +16,6 @@ import { Actions, ofType } from '@ngrx/effects';
 import { CommonUtilService } from '../../shared/common-util.service';
 import { PaymentService } from '../../shared/services/payment.service';
 
-
-import * as moment from 'moment';
-import 'moment-duration-format';
-
-
 @Component({
   selector: 'app-add-edit-card',
   templateUrl: './add-edit-card.component.html',
@@ -28,28 +23,21 @@ import 'moment-duration-format';
 })
 export class AddEditCardComponent implements OnInit, OnDestroy {
 
-  isLoading: boolean = false;
-  isSubmiting: boolean = false;
-  isForEdit: boolean = false;
-  isExpiryDateInValid: boolean = false;
-
-  creditCardForm: any;
+  public isLoading: boolean = false;
+  public isSubmiting: boolean = false;
+  public isForEdit: boolean = false;
+  public isExpiryDateInValid: boolean = false;
+  public creditCardForm: any;
+  public destroyed$ = new Subject<boolean>();
 
   private monthList: any = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  private inputCard: any;
-
-  destroyed$ = new Subject<boolean>();
   private addSub!: Subscription;
   private editSub!: Subscription;
-
-
 
   constructor(
     public dialogRef: MatDialogRef<AddEditCardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private store: Store<AppState>,
-    private router: Router,
-    private route: ActivatedRoute,
     private util: CommonUtilService,
     private paymentServ: PaymentService,
     private fb: FormBuilder,

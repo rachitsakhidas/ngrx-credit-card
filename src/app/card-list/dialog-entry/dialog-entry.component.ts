@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddEditCardComponent } from '../add-edit-card/add-edit-card.component';
 
@@ -11,9 +11,7 @@ import { CreditCard } from '../../models/credit-card.models';
   templateUrl: './dialog-entry.component.html',
   styleUrls: ['./dialog-entry.component.scss']
 })
-export class DialogEntryComponent implements OnInit {
-
-  private data: any;
+export class DialogEntryComponent implements OnInit, OnDestroy {
 
   constructor(
     public dialog: MatDialog,
@@ -29,8 +27,8 @@ export class DialogEntryComponent implements OnInit {
 
   }
 
-  setParam(params?: any) {
-    this.data.id = params.id;
+  ngOnDestroy(): void {
+
   }
 
   openDialog(data?: any): void {
